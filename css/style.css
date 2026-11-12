@@ -1,0 +1,40 @@
+/* House style — main #0b6b4f ground #f6f1e7 ink #1f2937 accent #f59e0b headings: Georgia, serif body: Arial, sans-serif */
+/* Trideca — one stylesheet for the whole site. Grid layout, Flexbox nav and cards, phone media query last. */
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: #f6f1e7; color: #1f2937; line-height: 1.5;
+  font-family: Arial, sans-serif;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+  grid-template-areas: "header header" "nav nav" "main aside" "footer footer";
+}
+h1, h2, h3 { font-family: Georgia, serif; color: #0b6b4f; }
+header { grid-area: header; background: #0b6b4f; color: #f6f1e7; padding: 1rem; }
+header p { margin: 0.25rem 0 0; }
+nav { grid-area: nav; background: #1f2937; position: sticky; top: 0; }
+nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; list-style: none; margin: 0; padding: 0.75rem 1rem; }
+nav a { color: #f6f1e7; text-decoration: none; }
+nav a:hover, nav a[aria-current="page"] { color: #f59e0b; text-decoration: underline; }
+main { grid-area: main; padding: 1rem; }
+aside { grid-area: aside; background: #ffffff; border-left: 4px solid #f59e0b; padding: 1rem; margin: 1rem 1rem 1rem 0; }
+footer { grid-area: footer; background: #1f2937; color: #f6f1e7; padding: 1rem; text-align: center; }
+a { color: #0b6b4f; }
+img, input, select, textarea { max-width: 100%; }
+.cards { display: flex; flex-wrap: wrap; gap: 1rem; }
+.card { flex: 1 1 14rem; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 1rem; }
+.card h3 { margin-top: 0; }
+.price { font-weight: bold; color: #0b6b4f; font-size: 1.2rem; }
+.btn { display: inline-block; background: #f59e0b; color: #1f2937; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: bold; }
+.table-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; background: #ffffff; }
+th, td { border: 1px solid #d1d5db; padding: 0.6rem; text-align: left; }
+th { background: #0b6b4f; color: #f6f1e7; }
+form label { display: block; margin-top: 0.75rem; font-weight: bold; }
+form input, form select, form textarea { width: 100%; padding: 0.6rem; margin-top: 0.25rem; border: 1px solid #9ca3af; border-radius: 4px; }
+form button { margin-top: 1rem; background: #0b6b4f; color: #ffffff; padding: 0.7rem 1.4rem; border: none; border-radius: 6px; cursor: pointer; }
+/* Responsive web design — phone, last in the file */
+@media (max-width: 700px) {
+  body { grid-template-columns: minmax(0, 1fr); grid-template-areas: "header" "nav" "main" "aside" "footer"; }
+  aside { margin: 0 1rem 1rem; border-left: none; border-top: 4px solid #f59e0b; }
+  nav ul { flex-direction: column; }
+}
